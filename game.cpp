@@ -3,7 +3,7 @@
 //
 
 #include "game.hpp"
-#include "introstate.hpp"
+#include "States/introstate.hpp"
 
 Game::Game() {
     _data->_stateMachine.PushState(StateRef ( new IntroState(this->_data)));
@@ -12,7 +12,6 @@ Game::Game() {
 void Game::Run() {
     while(this->_data->playGame){
         this->_data->_stateMachine.ProcessStateChanges();
-        //this->_data->_stateMachine.GetCurrentState()->Init();
         this->_data->_stateMachine.GetCurrentState()->HandleInput();
         this->_data->_stateMachine.GetCurrentState()->Update();
     }

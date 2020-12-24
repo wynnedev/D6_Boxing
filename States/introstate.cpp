@@ -3,6 +3,8 @@
 //
 
 #include "introstate.hpp"
+#include "mainmenustate.hpp"
+
 void IntroState::Init() {
     std::cout << "Welcome to the D6 Boxing" << std::endl;
 }
@@ -10,7 +12,7 @@ void IntroState::HandleInput() {
     system("pause");
 }
 void IntroState::Update() {
-    std::cout << "Moving to Main Menu State" << std::endl;
+    _data->_stateMachine.PushState(StateRef ( new MainMenuState(this->_data)));
 }
 
 IntroState::IntroState(GameDataRef data) : _data(data) {

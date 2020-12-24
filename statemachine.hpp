@@ -5,9 +5,9 @@
 #ifndef PROJECT_D6_STATEMACHINE_HPP
 #define PROJECT_D6_STATEMACHINE_HPP
 
-#include "state.hpp"
-#include <stack>
+#include "States/state.hpp"
 #include <memory>
+#include <stack>
 
 typedef std::unique_ptr<State> StateRef;
 

@@ -4,7 +4,7 @@
 
 #ifndef PROJECT_D6_INTROSTATE_HPP
 #define PROJECT_D6_INTROSTATE_HPP
-#include "game.hpp"
+#include "../game.hpp"
 #include "state.hpp"
 #include <iostream>
 

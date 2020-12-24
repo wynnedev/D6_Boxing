@@ -3,8 +3,9 @@
 //
 
 #include "mainmenustate.hpp"
+#include "quitstate.hpp"
 
-MainMenuState::MainMenuState(GameDataRef data) {
+MainMenuState::MainMenuState(GameDataRef data) : _data(data) {
 }
 void MainMenuState::Init() {
     std::cout << "Welcome to D6 Boxing v1.0" << std::endl;
@@ -15,8 +16,9 @@ void MainMenuState::Init() {
               << std::endl;
 }
 void MainMenuState::HandleInput() {
-    std::cin >>  _data->input;
-
+    std::cin >> _data->input;
+}
+void MainMenuState::Update() {
     if(_data->input == "1"){
 
     }
@@ -26,13 +28,11 @@ void MainMenuState::HandleInput() {
     }
 
     else if(_data->input == "3"){
-
+        _data->_stateMachine.PushState(StateRef ( new QuitState(this->_data)));
     }
 
     else{
-
+        std::cout << "Invalid Entry" << std::endl;
     }
-}
-void MainMenuState::Update() {
 }
 
